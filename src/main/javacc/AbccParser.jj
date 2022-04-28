@@ -1,0 +1,50 @@
+options {
+    DEBUG_PARSER = true;
+}
+
+PARSER_BEGIN(AbccParser)
+package org.javacc.tutorials.abcc;
+
+/** Simple brace matcher. */
+public class AbccParser {
+
+  /** Main entry point. */
+  public static void main(String args[]) throws ParseException {
+    AbccParser parser = new AbccParser(System.in);
+    parser.Input();
+  }
+
+}
+
+PARSER_END(AbccParser)
+
+SKIP : {
+      " "
+    | "\t"
+    | "\n"
+    | "\r"
+}
+
+/** Root production. */
+void Input() :
+{}
+{
+  "a" BC() "c" DEF()
+}
+
+/** Brace matching production. */
+void BC() :
+{}
+{
+  "b"
+  [
+    LOOKAHEAD( "c", { getToken(2).kind == C } )
+    <C:"c">
+  ]
+}
+
+void DEF():
+{}
+{
+    "d" "e" "f"
+}

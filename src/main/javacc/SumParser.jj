@@ -1,0 +1,52 @@
+options {
+    DEBUG_LOOKAHEAD = true;
+    DEBUG_PARSER = true;
+    DEBUG_TOKEN_MANAGER = true;
+    UNICODE_INPUT = true;
+}
+
+PARSER_BEGIN(SumParser)
+package com.github.alphahinex.javacc.demo.sum;
+
+/** Simple brace matcher. */
+public class SumParser {
+
+  /** Main entry point. */
+  public static void main(String args[]) throws ParseException {
+    SumParser parser = new SumParser(System.in);
+    System.out.println(parser.Sum());
+  }
+
+}
+
+PARSER_END(SumParser)
+
+SKIP : {
+      " "
+    | "\t"
+    | "\n"
+    | "\r"
+}
+
+TOKEN : {
+      <SUM: "求和">
+    | <INTEGER: (["+","-"])? ["1"-"9"] (["0"-"9"])*>
+}
+
+/** Root production. */
+int Sum() :
+{
+    int left;
+    int right;
+}
+{
+  <SUM> "(" left=Integer() "," right=Integer() ")" { return left + right; }
+}
+
+int Integer() :
+{
+    Token tk,tk2;
+}
+{
+    tk = <INTEGER> { return Integer.parseInt(tk.image); }
+}
