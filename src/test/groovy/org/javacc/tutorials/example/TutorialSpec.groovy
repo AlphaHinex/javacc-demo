@@ -26,7 +26,7 @@ class TutorialSpec extends Specification {
         thrown(org.javacc.tutorials.semantic.ParseException)
     }
 
-    def 'AbccParser.jj still only match `abcc`, could not match `abc`'() {
+    def 'AbccParser.jj could match both `abcc` and `abc`'() {
         expect:
         new AbccParser(new ByteArrayInputStream('abcc'.getBytes())).Input()
         new AbccParser(new ByteArrayInputStream('abc'.getBytes())).Input()
