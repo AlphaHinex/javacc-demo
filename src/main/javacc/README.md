@@ -31,6 +31,6 @@ $ java -classpath ./lib/javacc-7.0.11.jar javacc \
 
 ```bash
 $ java -classpath ./lib/javacc-7.0.11.jar javacc \
--OUTPUT_DIRECTORY=./src/main/java/com/github/alphahinex/javacc/demo/sum/ \
+-OUTPUT_DIRECTORY=./src/main/java/io/github/alphahinex/javacc/demo/sum/ \
 ./src/main/javacc/SumParser.jj
 ```

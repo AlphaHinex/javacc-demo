@@ -3,10 +3,11 @@ options {
     DEBUG_PARSER = true;
     DEBUG_TOKEN_MANAGER = true;
     UNICODE_INPUT = true;
+    STATIC = false;
 }
 
 PARSER_BEGIN(SumParser)
-package com.github.alphahinex.javacc.demo.sum;
+package io.github.alphahinex.javacc.demo.sum;
 
 /** Simple brace matcher. */
 public class SumParser {
@@ -18,7 +19,6 @@ public class SumParser {
   }
 
 }
-
 PARSER_END(SumParser)
 
 SKIP : {
