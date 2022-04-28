@@ -24,9 +24,6 @@ public interface ExampleConstants {
     "\"a\"",
     "\"c\"",
     "\"b\"",
-    "\"d\"",
-    "\"e\"",
-    "\"f\"",
   };
 
 }

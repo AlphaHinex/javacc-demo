@@ -6,16 +6,16 @@ package org.javacc.tutorials.semantic;
 public class SemanticTokenManager implements SemanticConstants {
 
   /** Debug output. */
-  public static  java.io.PrintStream debugStream = System.out;
+  public  java.io.PrintStream debugStream = System.out;
   /** Set debug output. */
-  public static  void setDebugStream(java.io.PrintStream ds) { debugStream = ds; }
-static private int jjStopAtPos(int pos, int kind)
+  public  void setDebugStream(java.io.PrintStream ds) { debugStream = ds; }
+private int jjStopAtPos(int pos, int kind)
 {
    jjmatchedKind = kind;
    jjmatchedPos = pos;
    return pos + 1;
 }
-static private int jjMoveStringLiteralDfa0_0(){
+private int jjMoveStringLiteralDfa0_0(){
    switch(curChar)
    {
       case 97:
@@ -24,12 +24,6 @@ static private int jjMoveStringLiteralDfa0_0(){
          return jjStopAtPos(0, 7);
       case 99:
          return jjStopAtPos(0, 6);
-      case 100:
-         return jjStopAtPos(0, 8);
-      case 101:
-         return jjStopAtPos(0, 9);
-      case 102:
-         return jjStopAtPos(0, 10);
       default :
          return 1;
    }
@@ -37,8 +31,8 @@ static private int jjMoveStringLiteralDfa0_0(){
 
 /** Token literal values. */
 public static final String[] jjstrLiteralImages = {
-"", null, null, null, null, "\141", "\143", "\142", "\144", "\145", "\146", };
-static protected Token jjFillToken()
+"", null, null, null, null, "\141", "\143", "\142", };
+protected Token jjFillToken()
 {
    final Token t;
    final String curTokenImage;
@@ -64,15 +58,15 @@ static protected Token jjFillToken()
 static final int[] jjnextStates = {0
 };
 
-static int curLexState = 0;
-static int defaultLexState = 0;
-static int jjnewStateCnt;
-static int jjround;
-static int jjmatchedPos;
-static int jjmatchedKind;
+int curLexState = 0;
+int defaultLexState = 0;
+int jjnewStateCnt;
+int jjround;
+int jjmatchedPos;
+int jjmatchedKind;
 
 /** Get the next Token. */
-public static Token getNextToken() 
+public Token getNextToken() 
 {
   Token matchedToken;
   int curPos = 0;
@@ -137,7 +131,7 @@ public static Token getNextToken()
   }
 }
 
-static void SkipLexicalActions(Token matchedToken)
+void SkipLexicalActions(Token matchedToken)
 {
    switch(jjmatchedKind)
    {
@@ -145,7 +139,7 @@ static void SkipLexicalActions(Token matchedToken)
          break;
    }
 }
-static void MoreLexicalActions()
+void MoreLexicalActions()
 {
    jjimageLen += (lengthOfMatch = jjmatchedPos + 1);
    switch(jjmatchedKind)
@@ -154,7 +148,7 @@ static void MoreLexicalActions()
          break;
    }
 }
-static void TokenLexicalActions(Token matchedToken)
+void TokenLexicalActions(Token matchedToken)
 {
    switch(jjmatchedKind)
    {
@@ -162,7 +156,7 @@ static void TokenLexicalActions(Token matchedToken)
          break;
    }
 }
-static private void jjCheckNAdd(int state)
+private void jjCheckNAdd(int state)
 {
    if (jjrounds[state] != jjround)
    {
@@ -170,13 +164,13 @@ static private void jjCheckNAdd(int state)
       jjrounds[state] = jjround;
    }
 }
-static private void jjAddStates(int start, int end)
+private void jjAddStates(int start, int end)
 {
    do {
       jjstateSet[jjnewStateCnt++] = jjnextStates[start];
    } while (start++ != end);
 }
-static private void jjCheckNAddTwoStates(int state1, int state2)
+private void jjCheckNAddTwoStates(int state1, int state2)
 {
    jjCheckNAdd(state1);
    jjCheckNAdd(state2);
@@ -185,8 +179,8 @@ static private void jjCheckNAddTwoStates(int state1, int state2)
     /** Constructor. */
     public SemanticTokenManager(SimpleCharStream stream){
 
-      if (input_stream != null)
-        throw new TokenMgrError("ERROR: Second call to constructor of static lexer. You must use ReInit() to initialize the static variables.", TokenMgrError.STATIC_LEXER_ERROR);
+      if (SimpleCharStream.staticFlag)
+            throw new Error("ERROR: Cannot use a static CharStream class with a non-static lexical analyzer.");
 
     input_stream = stream;
   }
@@ -199,7 +193,7 @@ static private void jjCheckNAddTwoStates(int state1, int state2)
 
   /** Reinitialise parser. */
   
-  static public void ReInit(SimpleCharStream stream)
+  public void ReInit(SimpleCharStream stream)
   {
 
 
@@ -211,7 +205,7 @@ static private void jjCheckNAddTwoStates(int state1, int state2)
     ReInitRounds();
   }
 
-  static private void ReInitRounds()
+  private void ReInitRounds()
   {
     int i;
     jjround = 0x80000001;
@@ -220,7 +214,7 @@ static private void jjCheckNAddTwoStates(int state1, int state2)
   }
 
   /** Reinitialise parser. */
-  static public void ReInit(SimpleCharStream stream, int lexState)
+  public void ReInit(SimpleCharStream stream, int lexState)
   
   {
     ReInit(stream);
@@ -228,7 +222,7 @@ static private void jjCheckNAddTwoStates(int state1, int state2)
   }
 
   /** Switch to specified lex state. */
-  public static void SwitchTo(int lexState)
+  public void SwitchTo(int lexState)
   {
     if (lexState >= 1 || lexState < 0)
       throw new TokenMgrError("Error: Ignoring invalid lexical state : " + lexState + ". State unchanged.", TokenMgrError.INVALID_LEXICAL_STATE);
@@ -244,10 +238,10 @@ public static final String[] lexStateNames = {
 
 /** Lex State array. */
 public static final int[] jjnewLexState = {
-   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
+   -1, -1, -1, -1, -1, -1, -1, -1, 
 };
 static final long[] jjtoToken = {
-   0x7e1L, 
+   0xe1L, 
 };
 static final long[] jjtoSkip = {
    0x1eL, 
@@ -258,13 +252,13 @@ static final long[] jjtoSpecial = {
 static final long[] jjtoMore = {
    0x0L, 
 };
-    static protected SimpleCharStream  input_stream;
+    protected SimpleCharStream  input_stream;
 
-    static private final int[] jjrounds = new int[0];
-    static private final int[] jjstateSet = new int[2 * 0];
-    private static final StringBuilder jjimage = new StringBuilder();
-    private static StringBuilder image = jjimage;
-    private static int jjimageLen;
-    private static int lengthOfMatch;
-    static protected int curChar;
+    private final int[] jjrounds = new int[0];
+    private final int[] jjstateSet = new int[2 * 0];
+    private final StringBuilder jjimage = new StringBuilder();
+    private StringBuilder image = jjimage;
+    private int jjimageLen;
+    private int lengthOfMatch;
+    protected int curChar;
 }

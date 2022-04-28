@@ -1,5 +1,6 @@
 options {
     DEBUG_PARSER = true;
+    STATIC = false;
 }
 
 PARSER_BEGIN(AbccParser)
@@ -29,7 +30,7 @@ SKIP : {
 void Input() :
 {}
 {
-  "a" BC() "c" DEF()
+  "a" BC() "c"
 }
 
 /** Brace matching production. */
@@ -41,10 +42,4 @@ void BC() :
     LOOKAHEAD( "c", { getToken(2).kind == C } )
     <C:"c">
   ]
-}
-
-void DEF():
-{}
-{
-    "d" "e" "f"
 }

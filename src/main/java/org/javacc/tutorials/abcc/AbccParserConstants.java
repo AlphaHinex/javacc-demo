@@ -26,9 +26,6 @@ public interface AbccParserConstants {
     "\"a\"",
     "\"c\"",
     "\"b\"",
-    "\"d\"",
-    "\"e\"",
-    "\"f\"",
   };
 
 }

@@ -12,21 +12,20 @@ public class AbccParser implements AbccParserConstants {
   }
 
 /** Root production. */
-  static final public void Input() throws ParseException {
+  final public void Input() throws ParseException {
     trace_call("Input");
     try {
 
       jj_consume_token(5);
       BC();
       jj_consume_token(C);
-      DEF();
     } finally {
       trace_return("Input");
     }
 }
 
 /** Brace matching production. */
-  static final public void BC() throws ParseException {
+  final public void BC() throws ParseException {
     trace_call("BC");
     try {
 
@@ -41,19 +40,7 @@ public class AbccParser implements AbccParserConstants {
     }
 }
 
-  static final public void DEF() throws ParseException {
-    trace_call("DEF");
-    try {
-
-      jj_consume_token(8);
-      jj_consume_token(9);
-      jj_consume_token(10);
-    } finally {
-      trace_return("DEF");
-    }
-}
-
-  static private boolean jj_2_1(int xla)
+  private boolean jj_2_1(int xla)
  {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return (!jj_3_1()); }
@@ -61,25 +48,24 @@ public class AbccParser implements AbccParserConstants {
     finally { jj_save(0, xla); }
   }
 
-  static private boolean jj_3_1()
+  private boolean jj_3_1()
  {
     if (jj_scan_token(C)) return true;
     return false;
   }
 
-  static private boolean jj_initialized_once = false;
   /** Generated Token Manager. */
-  static public AbccParserTokenManager token_source;
-  static SimpleCharStream jj_input_stream;
+  public AbccParserTokenManager token_source;
+  SimpleCharStream jj_input_stream;
   /** Current token. */
-  static public Token token;
+  public Token token;
   /** Next token. */
-  static public Token jj_nt;
-  static private int jj_ntk;
-  static private Token jj_scanpos, jj_lastpos;
-  static private int jj_la;
-  static private int jj_gen;
-  static final private int[] jj_la1 = new int[0];
+  public Token jj_nt;
+  private int jj_ntk;
+  private Token jj_scanpos, jj_lastpos;
+  private int jj_la;
+  private int jj_gen;
+  final private int[] jj_la1 = new int[0];
   static private int[] jj_la1_0;
   static {
 	   jj_la1_init_0();
@@ -87,9 +73,9 @@ public class AbccParser implements AbccParserConstants {
 	private static void jj_la1_init_0() {
 	   jj_la1_0 = new int[] {};
 	}
-  static final private JJCalls[] jj_2_rtns = new JJCalls[1];
-  static private boolean jj_rescan = false;
-  static private int jj_gc = 0;
+  final private JJCalls[] jj_2_rtns = new JJCalls[1];
+  private boolean jj_rescan = false;
+  private int jj_gc = 0;
 
   {
       enable_tracing();
@@ -100,13 +86,6 @@ public class AbccParser implements AbccParserConstants {
   }
   /** Constructor with InputStream and supplied encoding */
   public AbccParser(java.io.InputStream stream, String encoding) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser.  ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 try { jj_input_stream = new SimpleCharStream(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
 	 token_source = new AbccParserTokenManager(jj_input_stream);
 	 token = new Token();
@@ -116,11 +95,11 @@ public class AbccParser implements AbccParserConstants {
   }
 
   /** Reinitialise. */
-  static public void ReInit(java.io.InputStream stream) {
+  public void ReInit(java.io.InputStream stream) {
 	  ReInit(stream, null);
   }
   /** Reinitialise. */
-  static public void ReInit(java.io.InputStream stream, String encoding) {
+  public void ReInit(java.io.InputStream stream, String encoding) {
 	 try { jj_input_stream.ReInit(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
 	 token_source.ReInit(jj_input_stream);
 	 token = new Token();
@@ -132,13 +111,6 @@ public class AbccParser implements AbccParserConstants {
 
   /** Constructor. */
   public AbccParser(java.io.Reader stream) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser. ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 jj_input_stream = new SimpleCharStream(stream, 1, 1);
 	 token_source = new AbccParserTokenManager(jj_input_stream);
 	 token = new Token();
@@ -148,7 +120,7 @@ public class AbccParser implements AbccParserConstants {
   }
 
   /** Reinitialise. */
-  static public void ReInit(java.io.Reader stream) {
+  public void ReInit(java.io.Reader stream) {
 	if (jj_input_stream == null) {
 	   jj_input_stream = new SimpleCharStream(stream, 1, 1);
 	} else {
@@ -167,13 +139,6 @@ public class AbccParser implements AbccParserConstants {
 
   /** Constructor with generated Token Manager. */
   public AbccParser(AbccParserTokenManager tm) {
-	 if (jj_initialized_once) {
-	   System.out.println("ERROR: Second call to constructor of static parser. ");
-	   System.out.println("	   You must either use ReInit() or set the JavaCC option STATIC to false");
-	   System.out.println("	   during parser generation.");
-	   throw new Error();
-	 }
-	 jj_initialized_once = true;
 	 token_source = tm;
 	 token = new Token();
 	 jj_ntk = -1;
@@ -190,7 +155,7 @@ public class AbccParser implements AbccParserConstants {
 	 for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
-  static private Token jj_consume_token(int kind) throws ParseException {
+  private Token jj_consume_token(int kind) throws ParseException {
 	 Token oldToken;
 	 if ((oldToken = token).next != null) token = token.next;
 	 else token = token.next = token_source.getNextToken();
@@ -223,7 +188,7 @@ public class AbccParser implements AbccParserConstants {
     }
   }
   static private final LookaheadSuccess jj_ls = new LookaheadSuccess();
-  static private boolean jj_scan_token(int kind) {
+  private boolean jj_scan_token(int kind) {
 	 if (jj_scanpos == jj_lastpos) {
 	   jj_la--;
 	   if (jj_scanpos.next == null) {
@@ -246,7 +211,7 @@ public class AbccParser implements AbccParserConstants {
 
 
 /** Get the next Token. */
-  static final public Token getNextToken() {
+  final public Token getNextToken() {
 	 if (token.next != null) token = token.next;
 	 else token = token.next = token_source.getNextToken();
 	 jj_ntk = -1;
@@ -256,7 +221,7 @@ public class AbccParser implements AbccParserConstants {
   }
 
 /** Get the specific Token. */
-  static final public Token getToken(int index) {
+  final public Token getToken(int index) {
 	 Token t = token;
 	 for (int i = 0; i < index; i++) {
 	   if (t.next != null) t = t.next;
@@ -265,20 +230,20 @@ public class AbccParser implements AbccParserConstants {
 	 return t;
   }
 
-  static private int jj_ntk_f() {
+  private int jj_ntk_f() {
 	 if ((jj_nt=token.next) == null)
 	   return (jj_ntk = (token.next=token_source.getNextToken()).kind);
 	 else
 	   return (jj_ntk = jj_nt.kind);
   }
 
-  static private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
-  static private int[] jj_expentry;
-  static private int jj_kind = -1;
-  static private int[] jj_lasttokens = new int[100];
-  static private int jj_endpos;
+  private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
+  private int[] jj_expentry;
+  private int jj_kind = -1;
+  private int[] jj_lasttokens = new int[100];
+  private int jj_endpos;
 
-  static private void jj_add_error_token(int kind, int pos) {
+  private void jj_add_error_token(int kind, int pos) {
 	 if (pos >= 100) {
 		return;
 	 }
@@ -317,9 +282,9 @@ public class AbccParser implements AbccParserConstants {
   }
 
   /** Generate ParseException. */
-  static public ParseException generateParseException() {
+  public ParseException generateParseException() {
 	 jj_expentries.clear();
-	 boolean[] la1tokens = new boolean[11];
+	 boolean[] la1tokens = new boolean[8];
 	 if (jj_kind >= 0) {
 	   la1tokens[jj_kind] = true;
 	   jj_kind = -1;
@@ -333,7 +298,7 @@ public class AbccParser implements AbccParserConstants {
 		 }
 	   }
 	 }
-	 for (int i = 0; i < 11; i++) {
+	 for (int i = 0; i < 8; i++) {
 	   if (la1tokens[i]) {
 		 jj_expentry = new int[1];
 		 jj_expentry[0] = i;
@@ -350,25 +315,25 @@ public class AbccParser implements AbccParserConstants {
 	 return new ParseException(token, exptokseq, tokenImage);
   }
 
-  static private boolean trace_enabled;
+  private boolean trace_enabled;
 
 /** Trace enabled. */
-  static final public boolean trace_enabled() {
+  final public boolean trace_enabled() {
 	 return trace_enabled;
   }
 
-  static private int trace_indent = 0;
+  private int trace_indent = 0;
 /** Enable tracing. */
-  static final public void enable_tracing() {
+  final public void enable_tracing() {
 	 trace_enabled = true;
   }
 
 /** Disable tracing. */
-  static final public void disable_tracing() {
+  final public void disable_tracing() {
 	 trace_enabled = false;
   }
 
-  static protected void trace_call(String s) {
+  protected void trace_call(String s) {
 	 if (trace_enabled) {
 	   for (int i = 0; i < trace_indent; i++) { System.out.print(" "); }
 	   System.out.println("Call:	" + s);
@@ -376,7 +341,7 @@ public class AbccParser implements AbccParserConstants {
 	 trace_indent = trace_indent + 2;
   }
 
-  static protected void trace_return(String s) {
+  protected void trace_return(String s) {
 	 trace_indent = trace_indent - 2;
 	 if (trace_enabled) {
 	   for (int i = 0; i < trace_indent; i++) { System.out.print(" "); }
@@ -384,7 +349,7 @@ public class AbccParser implements AbccParserConstants {
 	 }
   }
 
-  static protected void trace_token(Token t, String where) {
+  protected void trace_token(Token t, String where) {
 	 if (trace_enabled) {
 	   for (int i = 0; i < trace_indent; i++) { System.out.print(" "); }
 	   System.out.print("Consumed token: <" + tokenImage[t.kind]);
@@ -395,7 +360,7 @@ public class AbccParser implements AbccParserConstants {
 	 }
   }
 
-  static protected void trace_scan(Token t1, int t2) {
+  protected void trace_scan(Token t1, int t2) {
 	 if (trace_enabled) {
 	   for (int i = 0; i < trace_indent; i++) { System.out.print(" "); }
 	   System.out.print("Visited token: <" + tokenImage[t1.kind]);
@@ -406,7 +371,7 @@ public class AbccParser implements AbccParserConstants {
 	 }
   }
 
-  static private void jj_rescan_token() {
+  private void jj_rescan_token() {
 	 jj_rescan = true;
 	 for (int i = 0; i < 1; i++) {
 	   try {
@@ -427,7 +392,7 @@ public class AbccParser implements AbccParserConstants {
 	 jj_rescan = false;
   }
 
-  static private void jj_save(int index, int xla) {
+  private void jj_save(int index, int xla) {
 	 JJCalls p = jj_2_rtns[index];
 	 while (p.gen > jj_gen) {
 	   if (p.next == null) { p = p.next = new JJCalls(); break; }

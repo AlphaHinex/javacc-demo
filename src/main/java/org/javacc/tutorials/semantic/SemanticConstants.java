@@ -26,9 +26,6 @@ public interface SemanticConstants {
     "\"a\"",
     "\"c\"",
     "\"b\"",
-    "\"d\"",
-    "\"e\"",
-    "\"f\"",
   };
 
 }

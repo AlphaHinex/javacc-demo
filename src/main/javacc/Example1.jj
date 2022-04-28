@@ -28,6 +28,7 @@
 
 options {
     DEBUG_PARSER = true;
+    STATIC = false;
 }
 
 PARSER_BEGIN(Example)
@@ -55,17 +56,11 @@ SKIP :
 void Input() :
 {}
 {
-  "a" BC() "c" DEF()
+  "a" BC() "c"
 }
 
 void BC() :
 {}
 {
   "b" [ "c" ]
-}
-
-void DEF():
-{}
-{
-    "d" "e" "f"
 }
