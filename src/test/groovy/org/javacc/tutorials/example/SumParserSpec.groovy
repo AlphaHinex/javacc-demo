@@ -14,7 +14,7 @@ class SumParserSpec extends Specification {
         where:
         formula         | result
         '求和(100,23)'   | 123
-        '求和(-100,23)'  | -77
+        '求和(-100, 23)'  | -77
     }
 
 }

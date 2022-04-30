@@ -33,7 +33,6 @@ void Input() :
   "a" BC() "c"
 }
 
-/** Brace matching production. */
 void BC() :
 {}
 {

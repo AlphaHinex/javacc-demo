@@ -33,7 +33,7 @@ int left;
   final public int Integer() throws ParseException {
     trace_call("Integer");
     try {
-Token tk,tk2;
+Token tk;
       tk = jj_consume_token(INTEGER);
 {if ("" != null) return Integer.parseInt(tk.image);}
     throw new Error("Missing return statement in function");

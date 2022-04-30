@@ -1,7 +1,5 @@
 options {
-    DEBUG_LOOKAHEAD = true;
     DEBUG_PARSER = true;
-    DEBUG_TOKEN_MANAGER = true;
     UNICODE_INPUT = true;
     STATIC = false;
 }
@@ -45,7 +43,7 @@ int Sum() :
 
 int Integer() :
 {
-    Token tk,tk2;
+    Token tk;
 }
 {
     tk = <INTEGER> { return Integer.parseInt(tk.image); }
